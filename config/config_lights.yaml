@@ -1,0 +1,66 @@
+#config_version=6
+
+lights:
+  l_1_coin_enable:
+    number:
+  l_2_start_button:
+    number:
+  l_3_tournament_start_button:
+    number:
+  l_4_action_button:
+    number:
+
+  l_11_left_out_lane:
+    number:
+  l_12_left_return_lane:
+    number:
+  l_13_right_return_lane:
+    number:
+  l_14_right_out_lane:
+    number:
+  l_15_shoot_again:
+    number:
+
+  l_18_riot_matrix_r1c1:
+    number:
+  l_22_riot_matrix_r2c1:
+    number:
+  l_26_riot_matrix_r3c1:
+    number:
+  l_30_riot_matrix_r4c1:
+    number:
+
+  l_34_agony_matrix_r1c2:
+    number:
+  l_38_agony_matrix_r2c2:
+    number:
+  l_42_agony_matrix_r3c2:
+    number:
+  l_46_agony_matrix_r4c2:
+    number:
+
+  l_50_phage_matrix_r1c3:
+    number:
+  l_54_phage_matrix_r2c3:
+    number:
+  l_58_phage_matrix_r3c3:
+    number:
+  l_62_phage_matrix_r4c3:
+    number:
+
+  l_66_lasher_matrix_r1c4:
+    number:
+  l_70_lasher_matrix_r2c4:
+    number:
+  l_74_lasher_matrix_r3c4:
+    number:
+  l_78_lasher_matrix_r4c4:
+    number:
+
+  l_83_team_up_1:
+    number:
+  l_84_team_up_2:
+    number:
+  l_85_team_up_3:
+    number:
+

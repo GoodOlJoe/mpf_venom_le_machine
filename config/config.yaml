@@ -7,6 +7,9 @@
 # include everything here, or create sub-config files to be
 # imported and merged with this one.
 
+config:
+  - config_lights.yaml
+  
 modes:
   - attract
   - base
