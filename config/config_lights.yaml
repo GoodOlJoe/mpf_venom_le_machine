@@ -64,3 +64,50 @@ lights:
   l_85_team_up_3:
     number:
 
+  l_88_venomized_1:
+    number:
+  l_89_venomized_2:
+    number:
+  l_90_venomized_3:
+    number:
+
+  l_91_knull:
+    number:
+  l_94_grendel:
+    number:
+
+  1_99_1x:
+    number:
+  1_100_2x:
+    number:
+  1_101_4x:
+    number:
+
+  1_104_left_target:
+    number:
+  1_105_right_target:
+    number:
+
+  1_108_left_orbit:
+    number:
+  1_109_left_orbit_web:
+    number:
+
+  1_114_left_ramp:
+    number:
+  1_117_left_ramp_web:
+    number:
+  1_118_left_ramp_lock:
+    number:
+  1_121_change_host:
+    number:
+
+  1_132_carnage_ramp:
+    number:
+  1_135_carnage_ramp_web:
+    number:
+  1_136_carnage_ramp_lock:
+    number:
+  1_139_start:
+    number:
+
