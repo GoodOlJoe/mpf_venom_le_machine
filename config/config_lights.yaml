@@ -96,7 +96,7 @@ lights:
 
   1_108_left_orbit:
     number:
-  1_109_left_orbit_web:
+  1_111_left_orbit_web:
     number:
 
   1_114_left_ramp:
@@ -108,11 +108,20 @@ lights:
   1_121_change_host:
     number:
 
-  1_132_carnage_ramp:
+  1_124_carnage_1:
     number:
-  1_135_carnage_ramp_web:
+  1_127_carnage_2:
     number:
-  1_136_carnage_ramp_lock:
+  1_128_carnage_3:
+    number:
+  1_129_carnage_inf:
+    number:
+
+  1_132_center_ramp:
+    number:
+  1_135_center_ramp_web:
+    number:
+  1_136_center_ramp_lock:
     number:
   1_139_start:
     number:
@@ -136,7 +145,7 @@ lights:
 
   1_163_scoop:
     number:
-  1_163_scoop_web:
+  1_166_scoop_web:
     number:
   1_167_scoop_lock:
     number:
