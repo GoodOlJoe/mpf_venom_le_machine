@@ -1,9 +1,16 @@
+# machine specific
+reference_vids_and_pics/
+
+# mpf
+logs/
+
+# Godot 4+ specific ignores
+.godot/
+/android/
+
 ###
 ### Godot .gitignore tem plate from GitHub
 ###
-
-# machine specific ignores
-reference_vids_and_pics/
 
 # Godot 4+ specific ignores
 .godot/
