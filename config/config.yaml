@@ -9,7 +9,7 @@
 
 config:
   - config_lights.yaml
-  
+
 modes:
   - attract
   - base

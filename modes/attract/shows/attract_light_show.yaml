@@ -1,0 +1,20 @@
+#show_version=6
+##! show: attract_light_show
+
+- duration: 1
+  lights:
+    l_88_venomized_1: (this_color)
+    l_89_venomized_2: purple
+    l_90_venomized_3: purple
+
+- duration: 1
+  lights:
+    l_88_venomized_1: purple
+    l_89_venomized_2: (this_color)
+    l_90_venomized_3: purple
+
+- duration: -1
+  lights:
+    l_88_venomized_1: purple
+    l_89_venomized_2: purple
+    l_90_venomized_3: (this_color)

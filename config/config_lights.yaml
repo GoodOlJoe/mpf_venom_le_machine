@@ -240,18 +240,25 @@ lights:
 
   245_coin_door_gi:
     number:
+    tags: gi
   246_left_gi_1_x6:
     number:
+    tags: gi
   247_left_gi_red_x7:
     number:
+    tags: gi
   248_left_gi_2_x5:
     number:
+    tags: gi
   249_right_gi_1_x6:
     number:
+    tags: gi
   250_right_gi_red_x6:
     number:
+    tags: gi
   251_right_gi_2_backpanel_x3:
     number:
+    tags: gi
 
   255_lower_left_flash:
     number:
