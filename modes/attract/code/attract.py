@@ -9,9 +9,7 @@ class Attract(Mode):
         self.__start_color = (255, 4, 217)
         self.__end_color = (81, 255, 0)  # blue
         self.__loop_count = 0
-        self.__lerp_interval = (
-            10  # default, intended to be overridden in settings event
-        )
+        self.__lerp_interval = 10
 
     def mode_start(self, **kwargs):
 
@@ -35,17 +33,10 @@ class Attract(Mode):
         self.add_mode_event_handler(
             "attract_extra_bosses_light_show_stopped", self.stop_handler
         )
-        # self.add_mode_event_handler("timer_ndx1111_tick", self.ndx1111_tick_handler)
-        # self.add_mode_event_handler(
-        #     "timer_ndx1111_complete", self.ndx1111_complete_handler
-        # )
-
-        # turn LED "led01" red
-        # self.machine.leds.led01.color('red')
 
     def lerp_color(self, color1, color2, amount):
         """
-        Linearly interpolates between two RGB colors.
+        Interpolates linearly between two RGB colors.
 
         Args:
             color1: Tuple (R, G, B) representing the first color (0-255).
@@ -64,75 +55,66 @@ class Attract(Mode):
 
         return (r, g, b)
 
-    # def rgb_to_hex(self,color):
-    #     r, g, b = color
-    #     return "{:02x}{:02x}{:02x}".format(r, g, b).upper()
+    def lerp_color_multistop(self, colors, amount):
+        """
+        Interpolates linearly along a path of colors, where the path
+        is a set of colors. So if the path is [blue, green, red, purple]
+        the path is the linear interpolation (lerp) from blue to green, followe
+        by the lerp from green to red, followed by the lerp from red to purple.
+
+        Args:
+            colors: An array of two or more (R, G, B) tuples representing stops on the path
+            amount: Float between 0 and 1 representing the interpolation scaled to the entire path, that is the
+            percentage of travel from the first color to the last color.
+
+        Returns:
+            Tuple (R, G, B) representing the interpolated color.
+        """
+        stop_count = len(colors)
+
+        if stop_count < 2:
+            raise AssertionError("A multistop lerp requires at least 2 stops")
+
+        if 0 == amount:
+            return colors[0]
+
+        if 1 == amount:
+            return colors[-1]
+
+        segment_size = 1 / float(stop_count - 1)  # how big is each segment of the path
+        remainder = amount % segment_size
+        # which segment of of the path are we in
+        segment_index = int((amount - remainder) / segment_size)
+        # scale the amount to the two end points of this segment
+        scaled_amount = remainder / segment_size
+
+        start_color = RGBColor.string_to_rgb(colors[segment_index])
+        end_color = RGBColor.string_to_rgb(colors[segment_index + 1])
+
+        return self.lerp_color(start_color, end_color, scaled_amount)
 
     def settings_handler(self, **kwargs):
-        # n = kwargs['l_88_venomized_1'][0]
         self.__lerp_interval = kwargs["lerp_interval"]
-        # print(
-        #     "    Inside settings handler, lerp interval is " + str(self.__lerp_interval)
-        # )
 
     def step_handler(self, **kwargs):
-        # n = kwargs['l_88_venomized_1'][0]
-        for lerp_light in kwargs["lerp_lights"]:
 
-            start_color = RGBColor.string_to_rgb(lerp_light[1])
-            end_color = RGBColor.string_to_rgb(lerp_light[2])
+        for lerp_light in kwargs["lerp_lights"]:
+            # print("    typeof(lerp_light) " + str(type(lerp_light)))
+
             lerp = float(self.__loop_count % self.__lerp_interval)
             if lerp != 0:
                 lerp = 1 / self.__lerp_interval * lerp
-            lerp_color = self.lerp_color(start_color, end_color, lerp)
 
-            # print("    Inside step handler light loop")
-            # print("        light      " + lerp_light[0])
-            # # print("        start      " + str(start_color))
-            # # print("        end        " + str(end_color))
-            # print("        lerp color " + str(lerp_color))
-            # print("        loop        " + str(self.__loop_count))
-            # print("        lerp        " + str(lerp))
+            # the lerp_light parameter is an list containing first the light name followed
+            # by any number of colors that serve as "stops" on the lerp
+            # path. So pass a sliced array [1:] yielding all but the first element
+            # to the multistop lerper
+            lerp_color = self.lerp_color_multistop(lerp_light[1:], lerp)
 
             self.machine.lights[lerp_light[0]].color(lerp_color)
 
     def loop_handler(self, **kwargs):
         self.__loop_count += 1
-        # print("Inside loop handler, loop count is " + str(self.__loop_count))
 
     def stop_handler(self, **kwargs):
         self.__loop_count = 0
-        # print("    Inside stop handler, loop count is " + str(self.__loop_count))
-        # print("    loop count is " + str(self.__loop_count))
-        # print("    lerp interval is " + str(self.__lerp_interval))
-
-    def ndx1111_tick_handler(self, **kwargs):
-        # print("Inside tick handler")
-        # n = str("x")
-        # print("N is initialized to [" + n +"]")
-        # n = self.machine.variables.get_machine_var("var_from_code")
-        # if n is None:
-        #     self.machine.variables.set_machine_var("var_from_code","Hello!")
-        # else:
-        # n = str(kwargs['ticks']) + " / " + str(kwargs['ticks_remaining'])
-        interval = 1 / (kwargs["ticks"] + kwargs["ticks_remaining"])
-        current_color = self.lerp_color(
-            self.__start_color, self.__end_color, interval * kwargs["ticks"]
-        )
-        self.machine.variables.set_machine_var(
-            "lerped_color", RGBColor.rgb_to_hex(current_color)
-        )
-        self.machine.lights["l_88_venomized_1"].color(
-            RGBColor.rgb_to_hex(current_color)
-        )
-        # self.machine.lights['l_88_venomized_1'].color('green')
-        self.machine.lights["l_89_venomized_2"].color("purple")
-        self.machine.lights["l_90_venomized_3"].color("purple")
-
-    def ndx1111_complete_handler(self, **kwargs):
-        self.machine.lights["l_88_venomized_1"].color(
-            RGBColor.rgb_to_hex(self.__end_color)
-        )
-        self.machine.variables.set_machine_var(
-            "lerped_color", RGBColor.rgb_to_hex(self.__end_color)
-        )
