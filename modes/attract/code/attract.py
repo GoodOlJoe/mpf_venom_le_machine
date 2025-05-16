@@ -1,11 +1,12 @@
 from mpf.core.mode import Mode
+from mpf.core.rgb_color import RGBColor
 
 # https://missionpinball.org/latest/code/introduction/mode_code/
 class Attract(Mode):
 
     def mode_init(self):
-        self.__start_color = (255,0,0) # red
-        self.__end_color = (0,0,255) # blue
+        self.__start_color = (255, 4, 217)
+        self.__end_color = (81, 255, 0) # blue
 
     def mode_start(self, **kwargs):
 
@@ -44,9 +45,9 @@ class Attract(Mode):
         
         return (r, g, b)
     
-    def rgb_to_hex(self,color):
-        r, g, b = color
-        return "{:02x}{:02x}{:02x}".format(r, g, b).upper()
+    # def rgb_to_hex(self,color):
+    #     r, g, b = color
+    #     return "{:02x}{:02x}{:02x}".format(r, g, b).upper()
 
     def ndx1111_tick_handler(self, **kwargs):
         # print("Inside tick handler")
@@ -59,7 +60,13 @@ class Attract(Mode):
         # n = str(kwargs['ticks']) + " / " + str(kwargs['ticks_remaining'])
         interval = 1 / ( kwargs['ticks'] + kwargs['ticks_remaining'])
         current_color = self.lerp_color(self.__start_color, self.__end_color, interval * kwargs['ticks'])
-        self.machine.variables.set_machine_var("lerped_color",self.rgb_to_hex(current_color))
+        self.machine.variables.set_machine_var("lerped_color",RGBColor.rgb_to_hex(current_color))
+        self.machine.lights['l_88_venomized_1'].color(RGBColor.rgb_to_hex(current_color))
+        # self.machine.lights['l_88_venomized_1'].color('green')
+        self.machine.lights['l_89_venomized_2'].color('purple')
+        self.machine.lights['l_90_venomized_3'].color('purple')
+
 
     def ndx1111_complete_handler(self, **kwargs):
-        self.machine.variables.set_machine_var("lerped_color",self.rgb_to_hex(self.__end_color))
+        self.machine.lights['l_88_venomized_1'].color(RGBColor.rgb_to_hex(self.__end_color))
+        self.machine.variables.set_machine_var("lerped_color",RGBColor.rgb_to_hex(self.__end_color))

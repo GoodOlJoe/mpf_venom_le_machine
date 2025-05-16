@@ -20,21 +20,17 @@ timers:
 # show_player:
 #   mode_attract_started:
 #     attract_light_show:
+#       manual_advance: true
 #       speed: 8
 #       loops: 4
 #       events_when_completed:
 #         - 
 #       show_tokens:
 #         this_color: "FF0000"
-#   timer_ndx1111_tick:
+
+#   # timer_ndx1111_tick: this event handler is in attract.py
 #     attract_light_show:
 #       action: advance
-#       # speed: 8
-#       # speed: 16 / .5
-#       # speed: device.timers.ndx1111.ticks # 8 # 16 / .5
-#       # loops: 0
-#       show_tokens:
-#         this_color: "00FF00"
 
 # event_player:
 #   timer_ndx1111_tick: new_event1
