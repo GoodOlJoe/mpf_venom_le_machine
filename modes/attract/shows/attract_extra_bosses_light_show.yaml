@@ -19,26 +19,29 @@
       # to dynamically roll the color through a lerped range from the start to the end color.
       # The lerp is based on the loop count. So each entry is telling the code: Set this
       # light to a color that is {loop count} lerped intervals between {start color} and {end color}
-      lerp_lights: [
-        [l_88_venomized_1, red, red],
-        [l_89_venomized_2, purple, green],
-        [l_90_venomized_3, purple, green]
+      lerp_lights:
+        [
+          [l_88_venomized_1, red, red],
+          [l_89_venomized_2, purple, orange, blue, orange, purple],
+          [l_90_venomized_3, purple, orange, blue, orange, purple],
         ]
 
 - duration: 1
   events:
     attract_extra_bosses_light_show_auto_step:
-      lerp_lights: [
-        [l_88_venomized_1, purple, green],
-        [l_89_venomized_2, red, red],
-        [l_90_venomized_3, purple, green]
+      lerp_lights:
+        [
+          [l_88_venomized_1, purple, orange, blue, orange, purple],
+          [l_89_venomized_2, red, red],
+          [l_90_venomized_3, purple, orange, blue, orange, purple],
         ]
 
 - duration: 1
   events:
     attract_extra_bosses_light_show_auto_step:
-      lerp_lights: [
-        [l_88_venomized_1, purple, green],
-        [l_89_venomized_2, purple, green],
-        [l_90_venomized_3, red, red]
+      lerp_lights:
+        [
+          [l_88_venomized_1, purple, orange, blue, orange, purple],
+          [l_89_venomized_2, purple, orange, blue, orange, purple],
+          [l_90_venomized_3, red, red],
         ]
