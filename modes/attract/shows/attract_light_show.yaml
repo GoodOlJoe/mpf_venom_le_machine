@@ -2,19 +2,22 @@
 ##! show: attract_light_show
 
 - duration: 1
-  lights:
-    l_88_venomized_1: (this_color)
-    l_89_venomized_2: purple
-    l_90_venomized_3: purple
+  events:
+    attract_light_show_auto_step:
+      # despite looking like light color commands, these are actually parameters to my event
+      # handler in attract.py
+      lerp_lights: [
+        [l_88_venomized_1, blue, red], 
+        [l_89_venomized_2, purple, white],
+        [l_90_venomized_3, purple, white]
+        ]
 
 - duration: 1
-  lights:
-    l_88_venomized_1: purple
-    l_89_venomized_2: (this_color)
-    l_90_venomized_3: purple
+  events:
+    attract_light_show_auto_step:
+      lerp_lights: [[l_88_venomized_1, blue, red], [l_89_venomized_2, purple, white], [l_90_venomized_3, purple, white]]
 
-- duration: -1
-  lights:
-    l_88_venomized_1: purple
-    l_89_venomized_2: purple
-    l_90_venomized_3: (this_color)
+- duration: 1
+  events:
+    attract_light_show_auto_step:
+      lerp_lights: [[l_88_venomized_1, blue, red], [l_89_venomized_2, purple, white], [l_90_venomized_3, purple, white]]

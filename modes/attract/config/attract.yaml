@@ -6,27 +6,28 @@
 mode:
   code: attract.Attract
 
-slide_player:
-  mode_attract_started: attract
+# slide_player:
+#   mode_attract_started: attract
 
-timers:
-  ndx1111:
-    start_value: 1
-    end_value: 10
-    control_events:
-      - action: start
-        event: mode_attract_started
+# timers:
+#   ndx1111:
+#     start_value: 1
+#     end_value: 10
+#     control_events:
+#       - action: start
+#         event: mode_attract_started
 
-# show_player:
-#   mode_attract_started:
-#     attract_light_show:
-#       manual_advance: true
-#       speed: 8
-#       loops: 4
-#       events_when_completed:
-#         - 
-#       show_tokens:
-#         this_color: "FF0000"
+show_player:
+  mode_attract_started:
+    attract_light_show:
+      speed: 8
+      events_when_looped: attract_light_show_looped
+      events_when_stopped: attract_light_show_stopped
+      # loops: -1
+      # events_when_completed:
+      #   - 
+      # show_tokens:
+      #   this_color: "FF0000"
 
 #   # timer_ndx1111_tick: this event handler is in attract.py
 #     attract_light_show:
