@@ -1,0 +1,91 @@
+#show_version=6
+##! show: attract_grid_light_show
+
+- duration: 1
+  lights:
+    l_78_lasher_matrix_r4c4: red
+    l_62_phage_matrix_r4c3: red
+    l_46_agony_matrix_r4c2: red
+    l_30_riot_matrix_r4c1: red
+
+    l_74_lasher_matrix_r3c4: off
+    l_58_phage_matrix_r3c3: off
+    l_42_agony_matrix_r3c2: off
+    l_26_riot_matrix_r3c1: off
+
+    l_70_lasher_matrix_r2c4: off
+    l_54_phage_matrix_r2c3: off
+    l_38_agony_matrix_r2c2: off
+    l_22_riot_matrix_r2c1: off
+
+    l_66_lasher_matrix_r1c4: off
+    l_50_phage_matrix_r1c3: off
+    l_34_agony_matrix_r1c2: off
+    l_18_riot_matrix_r1c1: off
+
+- duration: 1
+  lights:
+    l_78_lasher_matrix_r4c4: off
+    l_62_phage_matrix_r4c3: off
+    l_46_agony_matrix_r4c2: off
+    l_30_riot_matrix_r4c1: off
+
+    l_74_lasher_matrix_r3c4: red
+    l_58_phage_matrix_r3c3: red
+    l_42_agony_matrix_r3c2: red
+    l_26_riot_matrix_r3c1: red
+
+    l_70_lasher_matrix_r2c4: off
+    l_54_phage_matrix_r2c3: off
+    l_38_agony_matrix_r2c2: off
+    l_22_riot_matrix_r2c1: off
+
+    l_66_lasher_matrix_r1c4: off
+    l_50_phage_matrix_r1c3: off
+    l_34_agony_matrix_r1c2: off
+    l_18_riot_matrix_r1c1: off
+
+- duration: 1
+  lights:
+    l_78_lasher_matrix_r4c4: off
+    l_62_phage_matrix_r4c3: off
+    l_46_agony_matrix_r4c2: off
+    l_30_riot_matrix_r4c1: off
+
+    l_74_lasher_matrix_r3c4: off
+    l_58_phage_matrix_r3c3: off
+    l_42_agony_matrix_r3c2: off
+    l_26_riot_matrix_r3c1: off
+
+    l_70_lasher_matrix_r2c4: red
+    l_54_phage_matrix_r2c3: red
+    l_38_agony_matrix_r2c2: red
+    l_22_riot_matrix_r2c1: red
+
+    l_66_lasher_matrix_r1c4: off
+    l_50_phage_matrix_r1c3: off
+    l_34_agony_matrix_r1c2: off
+    l_18_riot_matrix_r1c1: off
+
+- duration: 1
+  lights:
+    l_78_lasher_matrix_r4c4: off
+    l_62_phage_matrix_r4c3: off
+    l_46_agony_matrix_r4c2: off
+    l_30_riot_matrix_r4c1: off
+
+    l_74_lasher_matrix_r3c4: off
+    l_58_phage_matrix_r3c3: off
+    l_42_agony_matrix_r3c2: off
+    l_26_riot_matrix_r3c1: off
+
+    l_70_lasher_matrix_r2c4: off
+    l_54_phage_matrix_r2c3: off
+    l_38_agony_matrix_r2c2: off
+    l_22_riot_matrix_r2c1: off
+
+    l_66_lasher_matrix_r1c4: red
+    l_50_phage_matrix_r1c3: red
+    l_34_agony_matrix_r1c2: red
+    l_18_riot_matrix_r1c1: red
+

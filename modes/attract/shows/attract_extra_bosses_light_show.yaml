@@ -1,0 +1,44 @@
+#show_version=6
+##! show: attract_extra_bosses_light_show
+
+# this feels like a bit of a hack and there may be a better way. Just
+# trying to externalize settings to make tweaking easier. This should
+# really be a custom property of th emode or the show or something. The
+# approach here works but it's sending these parameters each time we loop
+# the show, which is wasteful
+- time: 0
+  events:
+    attract_extra_bosses_light_show_settings:
+      lerp_interval: 30
+
+- duration: 1
+  events:
+    attract_extra_bosses_light_show_auto_step:
+      # despite looking like light color commands, these are actually parameters to my event
+      # handler in attract.py. Each entry is a light and a start and end color. The idea is
+      # to dynamically roll the color through a lerped range from the start to the end color.
+      # The lerp is based on the loop count. So each entry is telling the code: Set this
+      # light to a color that is {loop count} lerped intervals between {start color} and {end color}
+      lerp_lights: [
+        [l_88_venomized_1, red, red],
+        [l_89_venomized_2, purple, green],
+        [l_90_venomized_3, purple, green]
+        ]
+
+- duration: 1
+  events:
+    attract_extra_bosses_light_show_auto_step:
+      lerp_lights: [
+        [l_88_venomized_1, purple, green],
+        [l_89_venomized_2, red, red],
+        [l_90_venomized_3, purple, green]
+        ]
+
+- duration: 1
+  events:
+    attract_extra_bosses_light_show_auto_step:
+      lerp_lights: [
+        [l_88_venomized_1, purple, green],
+        [l_89_venomized_2, purple, green],
+        [l_90_venomized_3, red, red]
+        ]

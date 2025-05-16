@@ -9,6 +9,9 @@ class Attract(Mode):
         self.__start_color = (255, 4, 217)
         self.__end_color = (81, 255, 0)  # blue
         self.__loop_count = 0
+        self.__lerp_interval = (
+            10  # default, intended to be overridden in settings event
+        )
 
     def mode_start(self, **kwargs):
 
@@ -20,9 +23,18 @@ class Attract(Mode):
         # what's the player's score?
         # print('Score: {}'.format(self.player.score))
 
-        self.add_mode_event_handler("attract_light_show_auto_step", self.step_handler)
-        self.add_mode_event_handler("attract_light_show_looped", self.loop_handler)
-        self.add_mode_event_handler("attract_light_show_stopped", self.stop_handler)
+        self.add_mode_event_handler(
+            "attract_extra_bosses_light_show_settings", self.settings_handler
+        )
+        self.add_mode_event_handler(
+            "attract_extra_bosses_light_show_auto_step", self.step_handler
+        )
+        self.add_mode_event_handler(
+            "attract_extra_bosses_light_show_looped", self.loop_handler
+        )
+        self.add_mode_event_handler(
+            "attract_extra_bosses_light_show_stopped", self.stop_handler
+        )
         # self.add_mode_event_handler("timer_ndx1111_tick", self.ndx1111_tick_handler)
         # self.add_mode_event_handler(
         #     "timer_ndx1111_complete", self.ndx1111_complete_handler
@@ -56,17 +68,43 @@ class Attract(Mode):
     #     r, g, b = color
     #     return "{:02x}{:02x}{:02x}".format(r, g, b).upper()
 
-    def stop_handler(self, **kwargs):
-        self.__loop_count = 0
-        print("Inside stop handler, loop count is " + str(self.__loop_count))
-
-    def loop_handler(self, **kwargs):
-        self.__loop_count += 1
-        print("Inside loop handler, loop count is " + str(self.__loop_count))
+    def settings_handler(self, **kwargs):
+        # n = kwargs['l_88_venomized_1'][0]
+        self.__lerp_interval = kwargs["lerp_interval"]
+        # print(
+        #     "    Inside settings handler, lerp interval is " + str(self.__lerp_interval)
+        # )
 
     def step_handler(self, **kwargs):
         # n = kwargs['l_88_venomized_1'][0]
-        print("Inside step handler, loop count is " + str(self.__loop_count))
+        for lerp_light in kwargs["lerp_lights"]:
+
+            start_color = RGBColor.string_to_rgb(lerp_light[1])
+            end_color = RGBColor.string_to_rgb(lerp_light[2])
+            lerp = float(self.__loop_count % self.__lerp_interval)
+            if lerp != 0:
+                lerp = 1 / self.__lerp_interval * lerp
+            lerp_color = self.lerp_color(start_color, end_color, lerp)
+
+            # print("    Inside step handler light loop")
+            # print("        light      " + lerp_light[0])
+            # # print("        start      " + str(start_color))
+            # # print("        end        " + str(end_color))
+            # print("        lerp color " + str(lerp_color))
+            # print("        loop        " + str(self.__loop_count))
+            # print("        lerp        " + str(lerp))
+
+            self.machine.lights[lerp_light[0]].color(lerp_color)
+
+    def loop_handler(self, **kwargs):
+        self.__loop_count += 1
+        # print("Inside loop handler, loop count is " + str(self.__loop_count))
+
+    def stop_handler(self, **kwargs):
+        self.__loop_count = 0
+        # print("    Inside stop handler, loop count is " + str(self.__loop_count))
+        # print("    loop count is " + str(self.__loop_count))
+        # print("    lerp interval is " + str(self.__lerp_interval))
 
     def ndx1111_tick_handler(self, **kwargs):
         # print("Inside tick handler")
