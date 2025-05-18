@@ -1,8 +1,8 @@
 from mpf.core.mode import Mode
 from mpf.core.rgb_color import RGBColor
 
-
 # https://missionpinball.org/latest/code/introduction/mode_code/
+# https://colordesigner.io/gradient-generator
 class Attract(Mode):
 
     def mode_init(self):
@@ -34,7 +34,8 @@ class Attract(Mode):
             "attract_extra_bosses_light_show_stopped", self.stop_handler
         )
 
-    def lerp_color(self, color1, color2, amount):
+    @staticmethod
+    def lerp_color(color1, color2, amount):
         """
         Interpolates linearly between two RGB colors.
 
@@ -55,7 +56,8 @@ class Attract(Mode):
 
         return (r, g, b)
 
-    def lerp_color_multistop(self, colors, amount):
+    @staticmethod
+    def lerp_color_multistop(colors, amount):
         """
         Interpolates linearly along a path of colors, where the path
         is a set of colors. So if the path is [blue, green, red, purple]
@@ -91,7 +93,7 @@ class Attract(Mode):
         start_color = RGBColor.string_to_rgb(colors[segment_index])
         end_color = RGBColor.string_to_rgb(colors[segment_index + 1])
 
-        return self.lerp_color(start_color, end_color, scaled_amount)
+        return Attract.lerp_color(start_color, end_color, scaled_amount)
 
     def settings_handler(self, **kwargs):
         self.__lerp_interval = kwargs["lerp_interval"]
@@ -109,7 +111,7 @@ class Attract(Mode):
             # by any number of colors that serve as "stops" on the lerp
             # path. So pass a sliced array [1:] yielding all but the first element
             # to the multistop lerper
-            lerp_color = self.lerp_color_multistop(lerp_light[1:], lerp)
+            lerp_color = Attract.lerp_color_multistop(lerp_light[1:], lerp)
 
             self.machine.lights[lerp_light[0]].color(lerp_color)
 
