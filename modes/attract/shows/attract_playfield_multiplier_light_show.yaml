@@ -1,0 +1,21 @@
+#show_version=6
+##! show: attract_host_panel_light_show
+
+- duration: 1
+  lights:
+    l_99_1x: white
+    l_100_2x: off
+    l_101_4x: off
+
+- duration: 1
+  lights:
+    l_99_1x: off
+    l_100_2x: white
+    l_101_4x: off
+
+- duration: 1
+  lights:
+    l_99_1x: off
+    l_100_2x: off
+    l_101_4x: white
+

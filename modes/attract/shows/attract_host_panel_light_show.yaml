@@ -1,0 +1,43 @@
+#show_version=6
+##! show: attract_host_panel_light_show
+
+- duration: 1
+  lights:
+    l_207_host_bb_1: white
+    l_208_host_bb_2: off
+    l_209_host_bb_3: off
+    l_210_host_bb_4: off
+    l_211_host_bb_5: off
+    l_212_host_bb_6: off
+    l_213_host_bb_7: off
+
+- duration: 1
+  lights:
+    l_207_host_bb_1: off
+    l_208_host_bb_2: white
+
+- duration: 1
+  lights:
+    l_208_host_bb_2: off
+    l_209_host_bb_3: white
+
+- duration: 1
+  lights:
+    l_209_host_bb_3: off
+    l_210_host_bb_4: white
+
+- duration: 1
+  lights:
+    l_210_host_bb_4: off
+    l_211_host_bb_5: white
+
+- duration: 1
+  lights:
+    l_211_host_bb_5: off
+    l_212_host_bb_6: white
+
+- duration: 1
+  lights:
+    l_212_host_bb_6: off
+    l_213_host_bb_7: white
+

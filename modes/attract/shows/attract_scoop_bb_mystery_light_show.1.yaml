@@ -1,0 +1,43 @@
+#show_version=6
+##! show: attract_scoop_bb_mystery_light_show.2
+
+- duration: 1
+  lights:
+    l_226_scoop_bb_mystery_1: off
+    l_227_scoop_bb_mystery_2: white
+    l_228_scoop_bb_mystery_3: off
+    l_229_scoop_bb_mystery_4: off
+    l_230_scoop_bb_mystery_5: off
+
+- duration: 1
+  lights:
+    l_226_scoop_bb_mystery_1: white
+    l_227_scoop_bb_mystery_2: off
+    l_228_scoop_bb_mystery_3: off
+    l_229_scoop_bb_mystery_4: off
+    l_230_scoop_bb_mystery_5: off
+
+- duration: 1
+  lights:
+    l_226_scoop_bb_mystery_1: off
+    l_227_scoop_bb_mystery_2: off
+    l_228_scoop_bb_mystery_3: white
+    l_229_scoop_bb_mystery_4: off
+    l_230_scoop_bb_mystery_5: off
+
+- duration: 1
+  lights:
+    l_226_scoop_bb_mystery_1: off
+    l_227_scoop_bb_mystery_2: off
+    l_228_scoop_bb_mystery_3: off
+    l_229_scoop_bb_mystery_4: white
+    l_230_scoop_bb_mystery_5: off
+
+- duration: 1
+  lights:
+    l_226_scoop_bb_mystery_1: off
+    l_227_scoop_bb_mystery_2: off
+    l_228_scoop_bb_mystery_3: off
+    l_229_scoop_bb_mystery_4: off
+    l_230_scoop_bb_mystery_5: white
+

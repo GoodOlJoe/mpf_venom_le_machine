@@ -1,0 +1,21 @@
+#show_version=6
+##! show: attract_scoop_bb_mystery_light_show.2
+
+- duration: 1
+  lights:
+    l_231_scoop_bb_battle_1: white
+    l_232_scoop_bb_battle_2: off
+    l_233_scoop_bb_battle_3: off
+
+- duration: 1
+  lights:
+    l_231_scoop_bb_battle_1: off
+    l_232_scoop_bb_battle_2: white
+    l_233_scoop_bb_battle_3: off
+
+- duration: 1
+  lights:
+    l_231_scoop_bb_battle_1: off
+    l_232_scoop_bb_battle_2: off
+    l_233_scoop_bb_battle_3: white
+
