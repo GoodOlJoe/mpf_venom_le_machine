@@ -82,198 +82,198 @@ lights:
   l_94_grendel:
     number:
 
-  1_99_1x:
+  l_99_1x:
     number:
-  1_100_2x:
+  l_100_2x:
     number:
-  1_101_4x:
-    number:
-
-  1_104_left_target:
-    number:
-  1_105_right_target:
+  l_101_4x:
     number:
 
-  1_108_left_orbit:
+  l_104_left_target:
     number:
-  1_111_left_orbit_web:
-    number:
-
-  1_114_left_ramp:
-    number:
-  1_117_left_ramp_web:
-    number:
-  1_118_left_ramp_lock:
-    number:
-  1_121_change_host:
+  l_105_right_target:
     number:
 
-  1_124_carnage_1:
+  l_108_left_orbit:
     number:
-  1_127_carnage_2:
-    number:
-  1_128_carnage_3:
-    number:
-  1_129_carnage_inf:
+  l_111_left_orbit_web:
     number:
 
-  1_132_center_ramp:
+  l_114_left_ramp:
     number:
-  1_135_center_ramp_web:
+  l_117_left_ramp_web:
     number:
-  1_136_center_ramp_lock:
+  l_118_left_ramp_lock:
     number:
-  1_139_start:
-    number:
-
-  1_144_bell_tower:
-    number:
-  1_147_bell_tower_inf:
+  l_121_change_host:
     number:
 
-  1_150_left_loop:
+  l_124_carnage_1:
     number:
-  1_153_left_loop_web:
+  l_127_carnage_2:
     number:
-  1_154_left_loop_lock:
+  l_128_carnage_3:
     number:
-
-  1_159_mini_target_left:
-    number:
-  1_160_mini_target_right:
+  l_129_carnage_inf:
     number:
 
-  1_163_scoop:
+  l_132_center_ramp:
     number:
-  1_166_scoop_web:
+  l_135_center_ramp_web:
     number:
-  1_167_scoop_lock:
+  l_136_center_ramp_lock:
     number:
-  1_170_mystery:
-    number:
-  1_171_extra_ball:
+  l_139_start:
     number:
 
-  1_174_right_loop:
+  l_144_bell_tower:
     number:
-  1_177_right_loop_web:
-    number:
-  1_178_right_loop_lock:
+  l_147_bell_tower_inf:
     number:
 
-  1_183_right_orbit:
+  l_150_left_loop:
     number:
-  1_186_right_orbit_web:
+  l_153_left_loop_web:
     number:
-  1_187_right_orbit_lock:
-    number:
-
-  192_down_3_bank_left:
-    number:
-  193_down_3_bank_center:
-    number:
-  194_down_3_bank_right:
-    number:
-  195_down_3_bank_2nd_left:
-    number:
-  196_down_3_bank_2nd_center:
-    number:
-  197_down_3_bank_2nd_center:
-    number:
-  198_rampage:
+  l_154_left_loop_lock:
     number:
 
-  201_top_lane_left_2x:
+  l_159_mini_target_left:
     number:
-  202_top_lane_right_2x:
-    number:
-  203_ravencroft_1_2x:
-    number:
-  204_ravencroft_2:
+  l_160_mini_target_right:
     number:
 
-  207_host_bb_1:
+  l_163_scoop:
     number:
-  208_host_bb_2:
+  l_166_scoop_web:
     number:
-  209_host_bb_3:
+  l_167_scoop_lock:
     number:
-  210_host_bb_4:
+  l_170_mystery:
     number:
-  211_host_bb_5:
-    number:
-  212_host_bb_6:
-    number:
-  213_host_bb_7:
+  l_171_extra_ball:
     number:
 
-  216_left_bb_lock_1:
+  l_174_right_loop:
     number:
-  217_left_bb_lock_2:
+  l_177_right_loop_web:
     number:
-  218_left_bb_lock_3:
-    number:
-
-  221_right_bb_lock_1:
-    number:
-  222_right_bb_lock_2:
-    number:
-  223_right_bb_lock_3:
+  l_178_right_loop_lock:
     number:
 
-  226_scoop_bb_mystery_1:
+  l_183_right_orbit:
     number:
-  227_scoop_bb_mystery_2:
+  l_186_right_orbit_web:
     number:
-  228_scoop_bb_mystery_3:
-    number:
-  229_scoop_bb_mystery_4:
-    number:
-  230_scoop_bb_mystery_5:
-    number:
-  231_scoop_bb_battle_1:
-    number:
-  232_scoop_bb_battle_2:
-    number:
-  233_scoop_bb_battle_3:
+  l_187_right_orbit_lock:
     number:
 
-  245_coin_door_gi:
+  l_192_down_3_bank_left:
+    number:
+  l_193_down_3_bank_center:
+    number:
+  l_194_down_3_bank_right:
+    number:
+  l_195_down_3_bank_2nd_left:
+    number:
+  l_196_down_3_bank_2nd_center:
+    number:
+  l_197_down_3_bank_2nd_center:
+    number:
+  l_198_rampage:
+    number:
+
+  l_201_top_lane_left_2x:
+    number:
+  l_202_top_lane_right_2x:
+    number:
+  l_203_ravencroft_1_2x:
+    number:
+  l_204_ravencroft_2:
+    number:
+
+  l_207_host_bb_1:
+    number:
+  l_208_host_bb_2:
+    number:
+  l_209_host_bb_3:
+    number:
+  l_210_host_bb_4:
+    number:
+  l_211_host_bb_5:
+    number:
+  l_212_host_bb_6:
+    number:
+  l_213_host_bb_7:
+    number:
+
+  l_216_left_bb_lock_1:
+    number:
+  l_217_left_bb_lock_2:
+    number:
+  l_218_left_bb_lock_3:
+    number:
+
+  l_221_right_bb_lock_1:
+    number:
+  l_222_right_bb_lock_2:
+    number:
+  l_223_right_bb_lock_3:
+    number:
+
+  l_226_scoop_bb_mystery_1:
+    number:
+  l_227_scoop_bb_mystery_2:
+    number:
+  l_228_scoop_bb_mystery_3:
+    number:
+  l_229_scoop_bb_mystery_4:
+    number:
+  l_230_scoop_bb_mystery_5:
+    number:
+  l_231_scoop_bb_battle_1:
+    number:
+  l_232_scoop_bb_battle_2:
+    number:
+  l_233_scoop_bb_battle_3:
+    number:
+
+  l_245_coin_door_gi:
     number:
     tags: gi
-  246_left_gi_1_x6:
+  l_246_left_gi_1_x6:
     number:
     tags: gi
-  247_left_gi_red_x7:
+  l_247_left_gi_red_x7:
     number:
     tags: gi
-  248_left_gi_2_x5:
+  l_248_left_gi_2_x5:
     number:
     tags: gi
-  249_right_gi_1_x6:
+  l_249_right_gi_1_x6:
     number:
     tags: gi
-  250_right_gi_red_x6:
+  l_250_right_gi_red_x6:
     number:
     tags: gi
-  251_right_gi_2_backpanel_x3:
+  l_251_right_gi_2_backpanel_x3:
     number:
     tags: gi
 
-  255_lower_left_flash:
+  l_255_lower_left_flash:
     number:
-  256_lower_right_flash:
+  l_256_lower_right_flash:
     number:
 
-  258_left_pop_flash:
+  l_258_left_pop_flash:
     number:
-  259_right_pop_flash:
+  l_259_right_pop_flash:
     number:
-  260_up_left_flash:
+  l_260_up_left_flash:
     number:
-  261_up_right_flash:
+  l_261_up_right_flash:
     number:
-  262_ravencroft_flash_wht:
+  l_262_ravencroft_flash_wht:
     number:
-  263_ravencroft_flash_red:
+  l_263_ravencroft_flash_red:
     number:
