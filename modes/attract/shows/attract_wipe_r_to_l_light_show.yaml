@@ -1,0 +1,6 @@
+#show_version=6
+##! show: attract_wipe_r_to_l_light_show
+
+- duration: 1
+  events:
+    attract_wipe_r_to_l_light_show_auto_step
