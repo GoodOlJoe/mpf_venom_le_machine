@@ -12,57 +12,81 @@ lights:
 
   l_11_left_out_lane:
     number:
+    tags: playfield_wipe
   l_12_left_return_lane:
     number:
+    tags: playfield_wipe
   l_13_right_return_lane:
     number:
+    tags: playfield_wipe
   l_14_right_out_lane:
     number:
+    tags: playfield_wipe
   l_15_shoot_again:
     number:
+    tags: playfield_wipe
 
   l_18_riot_matrix_r1c1:
     number:
+    tags: playfield_wipe
   l_22_riot_matrix_r2c1:
     number:
+    tags: playfield_wipe
   l_26_riot_matrix_r3c1:
     number:
+    tags: playfield_wipe
   l_30_riot_matrix_r4c1:
     number:
+    tags: playfield_wipe
 
   l_34_agony_matrix_r1c2:
     number:
+    tags: playfield_wipe
   l_38_agony_matrix_r2c2:
     number:
+    tags: playfield_wipe
   l_42_agony_matrix_r3c2:
     number:
+    tags: playfield_wipe
   l_46_agony_matrix_r4c2:
     number:
+    tags: playfield_wipe
 
   l_50_phage_matrix_r1c3:
     number:
+    tags: playfield_wipe
   l_54_phage_matrix_r2c3:
     number:
+    tags: playfield_wipe
   l_58_phage_matrix_r3c3:
     number:
+    tags: playfield_wipe
   l_62_phage_matrix_r4c3:
     number:
+    tags: playfield_wipe
 
   l_66_lasher_matrix_r1c4:
     number:
+    tags: playfield_wipe
   l_70_lasher_matrix_r2c4:
     number:
+    tags: playfield_wipe
   l_74_lasher_matrix_r3c4:
     number:
+    tags: playfield_wipe
   l_78_lasher_matrix_r4c4:
     number:
+    tags: playfield_wipe
 
   l_83_team_up_1:
     number:
+    tags: playfield_wipe
   l_84_team_up_2:
     number:
+    tags: playfield_wipe
   l_85_team_up_3:
     number:
+    tags: playfield_wipe
 
 ##############################################################
 ###
@@ -72,121 +96,172 @@ lights:
 
   l_88_venomized_1:
     number:
+    tags: playfield_wipe
   l_89_venomized_2:
     number:
+    tags: playfield_wipe
   l_90_venomized_3:
     number:
+    tags: playfield_wipe
 
   l_91_knull:
     number:
+    tags: playfield_wipe
   l_94_grendel:
     number:
+    tags: playfield_wipe
 
   l_99_1x:
     number:
+    tags: playfield_wipe
   l_100_2x:
     number:
+    tags: playfield_wipe
   l_101_4x:
     number:
+    tags: playfield_wipe
 
   l_104_left_target:
     number:
+    tags: playfield_wipe
   l_105_right_target:
     number:
+    tags: playfield_wipe
 
   l_108_left_orbit:
     number:
+    tags: playfield_wipe
   l_111_left_orbit_web:
     number:
+    tags: playfield_wipe
 
   l_114_left_ramp:
     number:
+    tags: playfield_wipe
   l_117_left_ramp_web:
     number:
+    tags: playfield_wipe
   l_118_left_ramp_lock:
     number:
+    tags: playfield_wipe
   l_121_change_host:
     number:
+    tags: playfield_wipe
 
   l_124_carnage_1:
     number:
+    tags: playfield_wipe
   l_127_carnage_2:
     number:
+    tags: playfield_wipe
   l_128_carnage_3:
     number:
+    tags: playfield_wipe
   l_129_carnage_inf:
     number:
+    tags: playfield_wipe
 
   l_132_center_ramp:
     number:
+    tags: playfield_wipe
   l_135_center_ramp_web:
     number:
+    tags: playfield_wipe
   l_136_center_ramp_lock:
     number:
+    tags: playfield_wipe
   l_139_start:
     number:
+    tags: playfield_wipe
 
   l_144_bell_tower:
     number:
+    tags: playfield_wipe
   l_147_bell_tower_inf:
     number:
+    tags: playfield_wipe
 
   l_150_left_loop:
     number:
+    tags: playfield_wipe
   l_153_left_loop_web:
     number:
+    tags: playfield_wipe
   l_154_left_loop_lock:
     number:
+    tags: playfield_wipe
 
   l_159_mini_target_left:
     number:
+    tags: playfield_wipe
   l_160_mini_target_right:
     number:
+    tags: playfield_wipe
 
   l_163_scoop:
     number:
+    tags: playfield_wipe
   l_166_scoop_web:
     number:
+    tags: playfield_wipe
   l_167_scoop_lock:
     number:
+    tags: playfield_wipe
   l_170_mystery:
     number:
+    tags: playfield_wipe
   l_171_extra_ball:
     number:
+    tags: playfield_wipe
 
   l_174_right_loop:
     number:
+    tags: playfield_wipe
   l_177_right_loop_web:
     number:
+    tags: playfield_wipe
   l_178_right_loop_lock:
     number:
+    tags: playfield_wipe
 
   l_183_right_orbit:
     number:
+    tags: playfield_wipe
   l_186_right_orbit_web:
     number:
+    tags: playfield_wipe
   l_187_right_orbit_lock:
     number:
+    tags: playfield_wipe
 
   l_192_down_3_bank_left:
     number:
+    tags: playfield_wipe
   l_193_down_3_bank_center:
     number:
+    tags: playfield_wipe
   l_194_down_3_bank_right:
     number:
+    tags: playfield_wipe
   l_195_down_3_bank_2nd_left:
     number:
+    tags: playfield_wipe
   l_196_down_3_bank_2nd_center:
     number:
+    tags: playfield_wipe
   l_197_down_3_bank_2nd_center:
     number:
+    tags: playfield_wipe
   l_198_rampage:
     number:
+    tags: playfield_wipe
 
   l_201_top_lane_left_2x:
     number:
+    tags: playfield_wipe
   l_202_top_lane_right_2x:
     number:
+    tags: playfield_wipe
   l_203_ravencroft_1_2x:
     number:
   l_204_ravencroft_2:
@@ -209,17 +284,23 @@ lights:
 
   l_216_left_bb_lock_1:
     number:
+    tags: playfield_wipe
   l_217_left_bb_lock_2:
     number:
+    tags: playfield_wipe
   l_218_left_bb_lock_3:
     number:
+    tags: playfield_wipe
 
   l_221_right_bb_lock_1:
     number:
+    tags: playfield_wipe
   l_222_right_bb_lock_2:
     number:
+    tags: playfield_wipe
   l_223_right_bb_lock_3:
     number:
+    tags: playfield_wipe
 
   l_226_scoop_bb_mystery_1:
     number:
@@ -262,18 +343,26 @@ lights:
 
   l_255_lower_left_flash:
     number:
+    tags: playfield_wipe
   l_256_lower_right_flash:
     number:
+    tags: playfield_wipe
 
   l_258_left_pop_flash:
     number:
+    tags: playfield_wipe
   l_259_right_pop_flash:
     number:
+    tags: playfield_wipe
   l_260_up_left_flash:
     number:
+    tags: playfield_wipe
   l_261_up_right_flash:
     number:
+    tags: playfield_wipe
   l_262_ravencroft_flash_wht:
     number:
+    tags: playfield_wipe
   l_263_ravencroft_flash_red:
     number:
+    tags: playfield_wipe
