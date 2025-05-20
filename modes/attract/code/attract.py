@@ -9,16 +9,14 @@ from ...util.plane import Plane
 from ...util.color import Color
 from ...util.playfield_layout import PlayfieldLayout
 
+from .attract_handler_extra_bosses_light_show import ExtraBossesLightShowHandler
 
 # https://missionpinball.org/latest/code/introduction/mode_code/
 # https://colordesigner.io/gradient-generator
 class Attract(Mode):
 
     def mode_init(self):
-        # region extra bosses light show properties
-        self.__extra_bosses_loop_count = 0
-        self.__extra_bosses_lerp_interval = 10
-        # endregion
+        self.extra_bosses_light_show_handler = ExtraBossesLightShowHandler(self.machine)
         # region wipe ul to lr light show properties
         self.__wipe_ul_to_lr_loop_count = 1
         # how many steps to complete a wipe of the whole playfield
@@ -49,8 +47,6 @@ class Attract(Mode):
 
     def mode_start(self, **kwargs):
 
-        # print(f"Machine path (from pathlib.Path().resolve()) is {self.__machine_path}")
-
         # we need a list of all lights so we can do geometry-based wipe effects in light shows
         self.__playfield_layout = PlayfieldLayout(self.__machine_path)
         # print (self.__playfield_layout.lights().keys())
@@ -58,16 +54,19 @@ class Attract(Mode):
         # region extra bosses light show
         self.add_mode_event_handler(
             "attract_extra_bosses_light_show_settings",
-            self.extra_bosses_settings_handler,
+            self.extra_bosses_light_show_handler.extra_bosses_settings_handler,
         )
         self.add_mode_event_handler(
-            "attract_extra_bosses_light_show_auto_step", self.extra_bosses_step_handler
+            "attract_extra_bosses_light_show_auto_step", 
+            self.extra_bosses_light_show_handler.extra_bosses_step_handler
         )
         self.add_mode_event_handler(
-            "attract_extra_bosses_light_show_looped", self.extra_bosses_loop_handler
+            "attract_extra_bosses_light_show_looped", 
+            self.extra_bosses_light_show_handler.extra_bosses_loop_handler
         )
         self.add_mode_event_handler(
-            "attract_extra_bosses_light_show_stopped", self.extra_bosses_stop_handler
+            "attract_extra_bosses_light_show_stopped", 
+            self.extra_bosses_light_show_handler.extra_bosses_stop_handler
         )
         # endregion
         # region Wipe UL to LR light show
@@ -238,35 +237,5 @@ class Attract(Mode):
 
     def wipe_ul_to_lr_stop_handler(self, **kwargs):
         self.__wipe_ul_to_lr_loop_count = 0
-
-    # endregion
-    # region  Extra Bosses Light Show Handlers
-    def extra_bosses_step_handler(self, **kwargs):
-
-        for lerp_light in kwargs["lerp_lights"]:
-            # print("    typeof(lerp_light) " + str(type(lerp_light)))
-
-            lerp = float(
-                self.__extra_bosses_loop_count % self.__extra_bosses_lerp_interval
-            )
-            if lerp != 0:
-                lerp = 1 / self.__extra_bosses_lerp_interval * lerp
-
-            # the lerp_light parameter is an list containing first the light name followed
-            # by any number of colors that serve as "stops" on the lerp
-            # path. So pass a sliced array [1:] yielding all but the first element
-            # to the multistop lerper
-            lerp_color = Color.lerp_multistop(lerp_light[1:], lerp)
-
-            self.machine.lights[lerp_light[0]].color(lerp_color)
-
-    def extra_bosses_settings_handler(self, **kwargs):
-        self.__extra_bosses_lerp_interval = kwargs["lerp_interval"]
-
-    def extra_bosses_loop_handler(self, **kwargs):
-        self.__extra_bosses_loop_count += 1
-
-    def extra_bosses_stop_handler(self, **kwargs):
-        self.__extra_bosses_loop_count = 0
 
     # endregion
