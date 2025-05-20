@@ -10,6 +10,7 @@ from ...util.playfield_layout import PlayfieldLayout
 
 from .attract_handler_extra_bosses_light_show import ExtraBossesLightShowHandler
 from .attract_handler_wipe_ul_to_lr_light_show import ULtoLRLightShowHandler
+from .attract_handler_wipe_r_to_l_light_show import RtoLLightShowHandler
 
 # https://missionpinball.org/latest/code/introduction/mode_code/
 # https://colordesigner.io/gradient-generator
@@ -18,41 +19,14 @@ class Attract(Mode):
     def mode_init(self):
 
         self.__machine_path = pathlib.Path().resolve()
+        # we need a list of all lights so we can do geometry-based wipe effects in light shows
         self.__playfield_layout = PlayfieldLayout(self.__machine_path)
 
         self.extra_bosses_light_show_handler = ExtraBossesLightShowHandler(self.machine)
         self.wipe_ul_to_lr_light_show_handler = ULtoLRLightShowHandler(self.machine,self.__playfield_layout)
-        # # region wipe ul to lr light show properties
-        # self.__wipe_ul_to_lr_loop_count = 1
-        # # how many steps to complete a wipe of the whole playfield
-        # self.__wipe_ul_to_lr_steps_per_wipe = 70
-        # # how many wipes to complete the color path
-        # self.__wipe_ul_to_lr_color_cycles_per_wipe = 0.5
-        # # amount to advance color path during each step
-        # # self.__wipe_ul_to_lr_lerp_increment = (
-        # #     self.__wipe_ul_to_lr_steps_per_wipe
-        # #     / self.__wipe_ul_to_lr_color_cycles_per_wipe
-        # # )
-        # # print ( f"!!!!!!!!!!self.__wipe_ul_to_lr_lerp_increment: {self.__wipe_ul_to_lr_lerp_increment}")
-        # # self.__wipe_ul_to_lr_color_path = ["FF0000", "00FF00", "FF00FF"]
-        # self.__wipe_ul_to_lr_color_path = ["red", "green", "blue"]
-        # self.__wipe_ul_to_lr_color_path = ["red", "green", "purple", "blue", "green"]
-        # endregion
-        # region wipe r to l light show properties
-        self.__wipe_r_to_l_loop_count = 1
-        # how many steps to complete a wipe of the whole playfield
-        self.__wipe_r_to_l_steps_per_wipe = 40
-        # how many wipes to complete the color path
-        self.__wipe_r_to_l_color_cycles_per_wipe = 0.5
-        self.__wipe_r_to_l_color_path = ["purple", "red", "green"]
-        # self.__wipe_r_to_l_color_path = ["red", "green", "purple", "blue", "green"]
-        # endregion
+        self.wipe_r_to_l_light_show_handler = RtoLLightShowHandler(self.machine,self.__playfield_layout)
 
     def mode_start(self, **kwargs):
-
-        # we need a list of all lights so we can do geometry-based wipe effects in light shows
-        self.__playfield_layout = PlayfieldLayout(self.__machine_path)
-        # print (self.__playfield_layout.lights().keys())
 
         # region extra bosses light show
         self.add_mode_event_handler(
@@ -89,158 +63,15 @@ class Attract(Mode):
         # region Wipe R to L light show
         self.add_mode_event_handler(
             "attract_wipe_r_to_l_light_show_auto_step",
-            self.wipe_r_to_l_step_handler,
+            self.wipe_r_to_l_light_show_handler.wipe_r_to_l_step_handler,
         )
         self.add_mode_event_handler(
-            "attract_wipe_r_to_l_light_show_looped", self.wipe_r_to_l_loop_handler
+            "attract_wipe_r_to_l_light_show_looped", 
+            self.wipe_r_to_l_light_show_handler.wipe_r_to_l_loop_handler
         )
         self.add_mode_event_handler(
-            "attract_wipe_r_to_l_light_show_stopped", self.wipe_r_to_l_stop_handler
+            "attract_wipe_r_to_l_light_show_stopped",
+            self.wipe_r_to_l_light_show_handler.wipe_r_to_l_stop_handler
         )
         # endregion
 
-    # region  Wipe R to L Light Show Handlers
-    def wipe_r_to_l_step_handler(self, **kwargs):
-
-        if self.__wipe_r_to_l_loop_count >= self.__wipe_r_to_l_steps_per_wipe + 1:
-            self.__wipe_r_to_l_loop_count = 1
-
-        # this wipe is simple linear so the line's endpoints will always be
-        # n,0 and 0,n
-        increment = 1 / (self.__wipe_r_to_l_steps_per_wipe)
-        # sx = sy = ex = ey = increment
-
-        # set start (sx,sy) and end (ex,ey) points for a slicing line for this iteration of the wipe
-        ex = 1 - (increment * self.__wipe_r_to_l_loop_count)
-        if ex < 0.0:
-            ex = 1.0
-        sx = ex
-
-        sy = 0.0
-        ey = 1.0
-
-        # now check each light, turn it on if it's left of the line
-        # else turn it off
-        lights = self.__playfield_layout.lights()
-        # print (f"!!!!! type(lights), lights is {type(lights)}, {lights}")
-        for light in lights.items():
-            # print (f"type(light), light is {type(light)}, {light}")
-            light_name, light_pos = light
-            # print (f"type(light_pos), light is {type(light_pos)}, {light_pos}")
-            # print (f"{light_name}: x:{light_pos['x']} y:{light_pos['y']}")
-
-            if "playfield_wipe" in self.machine.lights[light_name].tags:
-
-                result = Plane.side(light_pos["x"], light_pos["y"], (sx, sy), (ex, ey))
-                if 1 == result:
-
-                    lerp_amount = (
-                        1
-                        / self.__wipe_r_to_l_steps_per_wipe
-                        * self.__wipe_r_to_l_loop_count
-                        * 0.8  # if this is >1 we crash somewhere, probably in the lerper, think about it
-                    )
-                    color = Color.lerp_multistop(
-                        self.__wipe_r_to_l_color_path, lerp_amount
-                    )
-                    # print(f"!!!!!!! lerp_amount:{lerp_amount} color:{color}")
-                    self.machine.lights[light_name].color(color)
-            # else:
-            #     self.machine.lights[light_name].off()
-
-        # is_left_of =
-        # print("    wipe step")
-        # print(f"        loop count {str(self.__wipe_r_to_l_loop_count)}")
-        # print(f"        increment  {str(increment)}")
-        # print(
-        #     f"        line       ({round(sx,2):.1f}, {round(sy,2):.1f})    ({round(ex,2):.1f}, {round(ey,2):.1f})"
-        # )
-        # print(f"        side       {result}")
-        # print(f"        is left of {str(-1 == result)}")
-
-    # def wipe_r_to_l_settings_handler(self, **kwargs):
-    #     self.__wipe_r_to_l_lerp_interval = kwargs["lerp_interval"]
-
-    def wipe_r_to_l_loop_handler(self, **kwargs):
-        self.__wipe_r_to_l_loop_count += 1
-
-    def wipe_r_to_l_stop_handler(self, **kwargs):
-        self.__wipe_r_to_l_loop_count = 0
-
-    # endregion
-    # # region  Wipe UL to LR Light Show Handlers
-    # def wipe_ul_to_lr_step_handler(self, **kwargs):
-
-    #     if self.__wipe_ul_to_lr_loop_count >= self.__wipe_ul_to_lr_steps_per_wipe + 1:
-    #         self.__wipe_ul_to_lr_loop_count = 1
-
-    #     # this wipe is simple linear so the line's endpoints will always be
-    #     # n,0 and 0,n
-    #     increment = 1 / (self.__wipe_ul_to_lr_steps_per_wipe / 2)
-    #     # sx = sy = ex = ey = increment
-
-    #     # set start (sx,sy) and end (ex,ey) points for a slicing line for this iteration of the wipe
-    #     ex = increment * self.__wipe_ul_to_lr_loop_count
-    #     if ex > 1.0:
-    #         ex = 1.0
-    #     sy = ex
-
-    #     if sy < 1:
-    #         ey = 0
-    #     else:
-    #         ey = (increment * self.__wipe_ul_to_lr_loop_count) - 1
-    #     sx = ey
-
-    #     # now check each light, turn it on if it's left of the line
-    #     # else turn it off
-    #     lights = self.__playfield_layout.lights()
-    #     # print (f"!!!!! type(lights), lights is {type(lights)}, {lights}")
-    #     for light in lights.items():
-    #         # print (f"type(light), light is {type(light)}, {light}")
-    #         light_name, light_pos = light
-    #         # print (f"type(light_pos), light is {type(light_pos)}, {light_pos}")
-    #         # print (f"{light_name}: x:{light_pos['x']} y:{light_pos['y']}")
-
-    #         if "playfield_wipe" in self.machine.lights[light_name].tags:
-
-    #             result = Plane.side(light_pos["x"], light_pos["y"], (sx, sy), (ex, ey))
-    #             if -1 == result:
-    #                 # lerp_amount = (
-    #                 #     self.__wipe_ul_to_lr_lerp_increment
-    #                 #     * self.__wipe_ul_to_lr_loop_count
-    #                 # )
-
-    #                 lerp_amount = (
-    #                     1
-    #                     / self.__wipe_ul_to_lr_steps_per_wipe
-    #                     * self.__wipe_ul_to_lr_loop_count
-    #                     * 0.8  # if this is >1 we crash somewhere, probably in the lerper, think about it
-    #                 )
-    #                 color = Color.lerp_multistop(
-    #                     self.__wipe_ul_to_lr_color_path, lerp_amount
-    #                 )
-    #                 # print(f"!!!!!!! lerp_amount:{lerp_amount} color:{color}")
-    #                 self.machine.lights[light_name].color(color)
-    #         # else:
-    #         #     self.machine.lights[light_name].off()
-
-    #     # is_left_of =
-    #     # print("    wipe step")
-    #     # print(f"        loop count {str(self.__wipe_ul_to_lr_loop_count)}")
-    #     # print(f"        increment  {str(increment)}")
-    #     # print(
-    #     #     f"        line       ({round(sx,2):.1f}, {round(sy,2):.1f})    ({round(ex,2):.1f}, {round(ey,2):.1f})"
-    #     # )
-    #     # print(f"        side       {result}")
-    #     # print(f"        is left of {str(-1 == result)}")
-
-    # # def wipe_ul_to_lr_settings_handler(self, **kwargs):
-    # #     self.__wipe_ul_to_lr_lerp_interval = kwargs["lerp_interval"]
-
-    # def wipe_ul_to_lr_loop_handler(self, **kwargs):
-    #     self.__wipe_ul_to_lr_loop_count += 1
-
-    # def wipe_ul_to_lr_stop_handler(self, **kwargs):
-    #     self.__wipe_ul_to_lr_loop_count = 0
-
-    # # endregion
