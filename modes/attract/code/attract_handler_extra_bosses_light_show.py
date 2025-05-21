@@ -2,10 +2,11 @@ from ...util.color import Color
 
 class ExtraBossesLightShowHandler:
 
-    def __init__(self, machine):
+    def __init__(self, machine, lerp_interval):
         self.__machine = machine
         self.__extra_bosses_loop_count = 0
-        self.__extra_bosses_lerp_interval = 10
+        self.__extra_bosses_lerp_interval = lerp_interval
+        
 
     def extra_bosses_step_handler(self, **kwargs):
 
@@ -23,9 +24,6 @@ class ExtraBossesLightShowHandler:
             lerp_color = Color.lerp_multistop(lerp_light[1:], lerp)
 
             self.__machine.lights[lerp_light[0]].color(lerp_color)
-
-    def extra_bosses_settings_handler(self, **kwargs):
-        self.__extra_bosses_lerp_interval = kwargs["lerp_interval"]
 
     def extra_bosses_loop_handler(self, **kwargs):
         self.__extra_bosses_loop_count += 1

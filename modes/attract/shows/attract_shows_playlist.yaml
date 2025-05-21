@@ -1,0 +1,16 @@
+#show_version=6
+
+##! show: attract_shows_playlist
+- duration: 10s
+  shows:
+    attract_wipe_ul_to_lr_light_show:
+      speed: 20
+      events_when_stopped: attract_wipe_ul_to_lr_light_show_stopped
+      events_when_looped: attract_wipe_ul_to_lr_light_show_looped
+
+- duration: 10s
+  shows:
+    attract_wipe_r_to_l_light_show:
+      speed: 20
+      events_when_stopped: attract_wipe_r_to_l_light_show_stopped
+      events_when_looped: attract_wipe_r_to_l_light_show_looped

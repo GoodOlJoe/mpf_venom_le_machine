@@ -6,9 +6,13 @@
 mode:
   code: attract.Attract
 
+mode_settings:
+  extra_bosses_light_show_settings:
+    lerp_interval: 31
+
 show_player:
 
-  mode_attract_started:
+  mode_attract_started: attract_shows_playlist
 
     # attract_extra_bosses_light_show:
     #   speed: 8
@@ -20,10 +24,10 @@ show_player:
     #   events_when_stopped: attract_wipe_ul_to_lr_light_show_stopped
     #   events_when_looped: attract_wipe_ul_to_lr_light_show_looped
 
-    attract_wipe_r_to_l_light_show:
-      speed: 20
-      events_when_stopped: attract_wipe_r_to_l_light_show_stopped
-      events_when_looped: attract_wipe_r_to_l_light_show_looped
+    # attract_wipe_r_to_l_light_show:
+    #   speed: 20
+    #   events_when_stopped: attract_wipe_r_to_l_light_show_stopped
+    #   events_when_looped: attract_wipe_r_to_l_light_show_looped
 
     # attract_grid_light_show:
     #   speed: 6

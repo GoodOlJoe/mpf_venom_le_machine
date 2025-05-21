@@ -22,17 +22,16 @@ class Attract(Mode):
         # we need a list of all lights so we can do geometry-based wipe effects in light shows
         self.__playfield_layout = PlayfieldLayout(self.__machine_path)
 
-        self.extra_bosses_light_show_handler = ExtraBossesLightShowHandler(self.machine)
+        self.extra_bosses_light_show_handler = ExtraBossesLightShowHandler(
+            self.machine, 
+            int(self.config['mode_settings']['extra_bosses_light_show_settings']['lerp_interval'])
+            )
         self.wipe_ul_to_lr_light_show_handler = ULtoLRLightShowHandler(self.machine,self.__playfield_layout)
         self.wipe_r_to_l_light_show_handler = RtoLLightShowHandler(self.machine,self.__playfield_layout)
 
     def mode_start(self, **kwargs):
 
         # region extra bosses light show
-        self.add_mode_event_handler(
-            "attract_extra_bosses_light_show_settings",
-            self.extra_bosses_light_show_handler.extra_bosses_settings_handler,
-        )
         self.add_mode_event_handler(
             "attract_extra_bosses_light_show_auto_step", 
             self.extra_bosses_light_show_handler.extra_bosses_step_handler
