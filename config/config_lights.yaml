@@ -88,12 +88,6 @@ lights:
     number:
     tags: playfield_wipe
 
-##############################################################
-###
-### Added to MPF Monitor playfield up through this marker
-###
-##############################################################
-
   l_88_venomized_1:
     number:
     tags: playfield_wipe

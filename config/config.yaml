@@ -9,6 +9,8 @@
 
 config:
   - config_lights.yaml
+  - config_coils.yaml
+  - config_switches.yaml
 
 modes:
   - attract
