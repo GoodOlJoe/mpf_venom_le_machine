@@ -1,0 +1,47 @@
+#config_version=6
+
+coils:
+  c_1_trough:
+    number: 8-1 # 8-DR-1
+  c_2_auto_plunger:
+    number: 8-4 # 8-DR-4
+  c_3_left_flipper:
+    number: 8-5 # 8-DR-5
+  c_4_right_flipper:
+    number: 8-0 # 8-DR-0
+  c_5_left_slingshot:
+    number: 8-3 # 8-DR-3
+  c_6_right_slingshot:
+    number: 8-2 # 8-DR-2
+  c_7_shaker_motor:
+    number: 1-0 # 1-DR-0
+  c_8_left_lock:
+    number: 8-6 # 8-DR-6
+  c_9_down_3_bank:
+    number: 8-7 # 8-DR-7
+  c_10_right_lock:
+    number: 8-8 # 8-DR-8
+  c_11_left_pop_bumper:
+    number: 9-2 # 9-DR-2
+  c_12_right_pop_bumper:
+    number: 9-3 # 9-DR-3
+  c_15_carnage:
+    number: 9-8 # 9-DR-8
+  c_16_top_post:
+    number: 9-7 # 9-DR-7
+  c_19_vuk:
+    number: 9-4 # 9-DR-4
+  c_21_loop_diverter:
+    number: 9-6 # 9-DR-6
+  c_22_left_mech_motor:
+    number: 9-0 # 9-DR-0
+  c_23_right_up_ramp:
+    number: 9-5 # 9-DR-5
+  c_24_up_post:
+    number: 9-1 # 9-DR-1
+  c_33_coin_meter:
+    number: 1-2 # 1-DR-2
+  c_34_ticket_meter:
+    number: 1-3 # 1-DR-3
+  c_35_ticket_dispenser:
+    number: 1-4 # 1-DR-4
