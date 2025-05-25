@@ -20,9 +20,11 @@
 |Grand Prix|6|deathsave|OPP, Smart Virtual|Grand Prix '86 is an attempt at a solid-state conversion / re-theme of the 1976 EM Pinball Machine by Williams.|Current and active. Good state diagram for rules|https://github.com/deathsave/grand-prix|
 |Futurama|6|deathsave|OPP|Futurama homebrew|well developed, extensie|https://github.com/deathsave/futurama|
 |Combat|6|deathsave|Fast|||https://github.com/deathsave/combat|
-|Saw|6|steel1790|Fast||Looks nicely done|https://github.com/Steel1790/SAW|
+|Saw|6|steel1790|Fast||Looks nicely done|https://github.com/Steel1790/SAW<br>https://youtu.be/pK2c-aAjeDY?si=H-XWPrbdMDbAznH7&t=198|
 |War Hammer 40K|6|aaronrichardt|Fast||Looks completely custom including playfield|https://github.com/aaronrichardt/Warhammer40k_pinball<br>https://www.reddit.com/r/Warhammer40k/|
 |World of Warships|5|OctaPinball|Virtual? Tested with Many? ||Extensive|https://github.com/OctaPinball/World-of-Warships-pinball|
-||||||||
-||||||||
-||||||||
+|The Greatest Showman|6|pinball-reborn|Fast|Whirlwind retheme|Recent, Extensive, really nice artwork. Best In Show|https://github.com/Pinball-Reborn/greatest_showman|
+|Zelda|5|wildertronix|Fast|||https://github.com/wildertronix/zelda|
+|GOBLINWAR|6|MaxpowerSW|Visual Pinball?|Firepower retheme||https://github.com/MaxPowerSW/GOBLINWAR|
+|beerfest|5|ohmrew|p3_roc|||https://github.com/ohmbrew/beerfest/<br>https://github.com/ohmbrew/beerfest2/|
+|Dodgeball|6|ohmrew|p3_roc||Looks unfinished but has some camera-related code|https://github.com/ohmbrew/dodgeball|
