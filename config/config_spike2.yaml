@@ -4,7 +4,11 @@ hardware:
   platform: spike
 
 spike:
+  
+  # port identified in Windows device manager after installing FTDI driver and
+  # plugging in USB null modem cable
   port: COM4
+
   baud: 230400
   flow_control: true
   debug: true
