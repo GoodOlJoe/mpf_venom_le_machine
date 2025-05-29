@@ -1,0 +1,12 @@
+#config_version=6
+
+hardware:
+  platform: spike
+
+spike:
+  port: COM4
+  baud: 230400
+  flow_control: true
+  debug: true
+  runtime_baud: 115200
+  nodes: 0, 1, 8, 9
