@@ -1,0 +1,9 @@
+#config_version=6
+
+virtual_platform_start_active_switches:
+  - s_15_trough_6
+  - s_16_trough_5
+  - s_17_trough_4
+  - s_18_trough_3
+  - s_19_trough_2
+  - s_20_trough_1
