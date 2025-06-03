@@ -1,0 +1,32 @@
+#config_version=6
+
+playfields:
+  playfield:
+    default_source_device: bd_plunger
+    tags: default
+
+ball_devices:
+  
+  bd_trough:
+    ball_switches: s_15_trough_6, s_16_trough_5, s_17_trough_4, s_18_trough_3, s_19_trough_2, s_20_trough_1, s_21_trough_jam
+    eject_coil: c_1_trough
+    tags: trough, home, drain
+    jam_switch: s_21_trough_jam
+    eject_coil_jam_pulse: 15ms
+    eject_targets: bd_plunger
+    eject_timeouts: 3s
+  
+  bd_plunger:
+    mechanical_eject: true
+    ball_switches: s_22_shooter_lane
+    eject_coil: c_2_auto_plunger
+    player_controlled_eject_event: s_100_lockdown_button_active
+    eject_timeouts: 5s
+
+virtual_platform_start_active_switches:
+  - s_15_trough_6
+  - s_16_trough_5
+  - s_17_trough_4
+  - s_18_trough_3
+  - s_19_trough_2
+  - s_20_trough_1
