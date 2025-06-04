@@ -9,8 +9,8 @@ spike:
   # plugging in USB null modem cable
   port: COM4
 
-  baud: 230400
-  flow_control: true
+  baud: 115200
+  flow_control: false
   debug: true
   runtime_baud: 115200
   nodes: 0, 1, 8, 9
